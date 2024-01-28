@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-0vuvwe^q2j(ij0(i1269-53_ne-wm+yqcgza92#g#g89xk5es@
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://lilyloom.onrender.com','https://*.127.0.0.1']
 
 # Application definition
 
