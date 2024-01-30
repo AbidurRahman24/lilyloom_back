@@ -3,11 +3,17 @@ from . import models
 from django.contrib.auth.models import User
 
 class SellerSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(many=False)
     class Meta:
         model = models.Seller
         fields = '__all__'
-
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','first_name','last_name', 'username', 'email']
+        
 class RegistrationSerializer(serializers.ModelSerializer):
+    username = serializers.StringRelatedField(many=False)
     confirm_password = serializers.CharField(required = True)
     class Meta:
         model = User

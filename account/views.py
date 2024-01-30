@@ -15,7 +15,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.shortcuts import redirect
 
-
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from .serializers import UserSerializer
 # Create your views here.
 class SellerViewSet(viewsets.ModelViewSet):
     queryset = models.Seller.objects.all()
@@ -79,6 +82,13 @@ class UserLoginApiView(APIView):
             else:
                 return Response({'error' : "Invalid Credential"})
         return Response(serializer.errors)
+    
+@api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+def profile(request):
+    user = request.user
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
 
 class UserLogoutView(APIView):
     def get(self, request):

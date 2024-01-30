@@ -11,4 +11,6 @@ urlpatterns = [
     path('login/', views.UserLoginApiView.as_view(), name='login'),
     path('logout/', views.UserLogoutView.as_view(), name='logout'),
     path('active/<uid64>/<token>/', views.activate, name = 'activate'),
+    path('user/', views.profile, name='user'),
+    # path('api/get_all_logged_in_users/', views.get_all_logged_in_users, name='get_all_logged_in_users'),
 ]

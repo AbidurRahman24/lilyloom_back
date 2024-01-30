@@ -18,6 +18,8 @@ class Flower(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to="flower/images/")
+    quantity = models.PositiveIntegerField(default=1)
+    # sales_count = models.PositiveIntegerField(default=0)
     category = models.ManyToManyField(FlowerCategory)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 

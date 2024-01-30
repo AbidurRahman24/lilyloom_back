@@ -7,7 +7,8 @@ class CategoryAdmin(admin.ModelAdmin):
 class FlowerAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'price', 'created_by']
     search_fields = ['title', 'description', 'category']
-
+# class FlowerAdmin(admin.ModelAdmin):
+#     list_display = ['flower', 'quantity', 'price', 'status']
 admin.site.register(models.FlowerCategory, CategoryAdmin)
 admin.site.register(models.Flower,FlowerAdmin)
 admin.site.register(models.Order)
