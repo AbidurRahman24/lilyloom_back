@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
     'category',
     'account',
     'flower',
+    'orders',
     "crispy_forms",
     "crispy_bootstrap5",
 ]
@@ -63,7 +65,13 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 ROOT_URLCONF = 'lilyloom.urls'
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # Replace with your frontend URL
+    # Add more origins as needed
+]
 
+# Optional: Allow credentials (cookies, authentication headers, etc.)
+CORS_ALLOW_CREDENTIALS = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

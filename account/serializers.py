@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id','first_name','last_name', 'username', 'email']
         
 class RegistrationSerializer(serializers.ModelSerializer):
-    username = serializers.StringRelatedField(many=False)
+    # username = serializers.StringRelatedField(many=False)
     confirm_password = serializers.CharField(required = True)
     class Meta:
         model = User

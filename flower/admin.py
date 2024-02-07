@@ -11,4 +11,4 @@ class FlowerAdmin(admin.ModelAdmin):
 #     list_display = ['flower', 'quantity', 'price', 'status']
 admin.site.register(models.FlowerCategory, CategoryAdmin)
 admin.site.register(models.Flower,FlowerAdmin)
-admin.site.register(models.Order)
+# admin.site.register(models.Order)

@@ -16,17 +16,4 @@ class FlowerCreateViewset(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter]
     search_fields = ['category__name','title']
 
-    # def perform_create(self, serializer):
-    #     serializer.save(created_by=self.request.user)
-
-class OrderViewset(viewsets.ModelViewSet):
-    queryset = models.Order.objects.all()
-    serializer_class = serializers.OrderSerializer
-
-    def get_queryset(self):
-        queryset = super().get_queryset() # 7 no line ke niye aslam ba patient ke inherit korlam
-        print(self.request.query_params)
-        user_id = self.request.query_params.get('user_id')
-        if user_id:
-            queryset = queryset.filter(user_id=user_id)
-        return queryset
+ 
